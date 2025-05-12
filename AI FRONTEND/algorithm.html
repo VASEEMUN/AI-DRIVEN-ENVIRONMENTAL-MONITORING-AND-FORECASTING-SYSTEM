@@ -1,0 +1,73 @@
+{% extends 'home.html' %}
+
+{% block navbar %}
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('home')}}">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url_for('algorithm')}}">Upload Image <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('prediction')}}">Prediction</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('index')}}">Logout</a>
+      </li>
+    </ul>
+  </div>
+{% endblock %}
+
+{% block content %}
+<div class="main-section">
+  <div class="content-box">
+    <h1>Predict Satellite Image</h1>
+    
+    {% if error %}
+    <div style="background-color: #FFCDD2; color: #B71C1C; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+      {{ error }}
+    </div>
+    {% endif %}
+
+    {% if prediction %}
+    <div style="background-color: #C8E6C9; color: #1B5E20; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+      <h4>Predicted Image as: <strong>{{ prediction }}</strong></h4>
+    </div>
+    <div style="margin-bottom: 20px;">
+      <img src="/{{path}}" height="200px" width="300px"><br><br>
+    </div>
+    {% endif %}
+
+    <form action="{{ url_for('algorithm') }}" method="post" enctype="multipart/form-data">
+      <div style="margin-bottom: 20px;">
+        <label for="file" style="color: #455A64; font-weight: 500; display: block; margin-bottom: 8px;">
+          Select Image (PNG/JPG)
+        </label>
+        <input type="file" 
+               id="file" 
+               name="file" 
+               accept=".png,.jpg,.jpeg" 
+               required
+               style="width: 100%; padding: 10px; border: 1px solid #B0BEC5; border-radius: 8px; color: #455A64;">
+      </div>
+      <div style="margin-bottom: 20px;">
+        <label for="alg" style="color: #455A64; font-weight: 500; display: block; margin-bottom: 8px;">
+  
+        </label>
+        <select id="alg" 
+                name="alg" 
+                required
+                style="width: 100%; padding: 10px; border: 1px solid #B0BEC5; border-radius: 8px; color: #455A64;">
+          <option value="mobilenet">MobileNet</option>
+  
+        </select>
+      </div>
+      <button type="submit" 
+              class="btn btn-primary">
+        Predict
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+
+{% block navbar %}
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('algorithm')}}">Upload Image</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('prediction')}}">Prediction</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="{{url_for('graph')}}">Graph</a>
+      </li> -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('index')}}">Logout</a>
+      </li>
+    </ul>
+  </div>
+{% endblock %}
+
+{% block content %}
+<section class="slider_section" style="min-height: calc(100vh - 90px); padding: 40px 0; position: relative; overflow: hidden;">
+  <!-- Video Background -->
+  <video autoplay loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+    <source src="static\images\0_Earth_Planet_3840x2160.mp4" type="video/mp4">
+  </video>
+
+  <!-- Content Box -->
+  <div class="container" style="position: relative; z-index: 1;">
+    <div class="content-box" style="background: transparent; padding: 40px; border-radius: 15px; max-width: 900px; margin: 90px auto 0;">
+      <h1 style="color: white; font-size: 2.2rem; margin-bottom: 20px; text-align: center;">
+        AI-Driven Environmental Monitoring<br>and Forecasting System
+      </h1>
+      <p style="color: white; font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">
+        The project aims to develop an AI-driven environmental monitoring and forecasting system. The system has two main modules: a forecasting module and an image classification module. The forecasting module predicts the Air Quality Index (AQI) using various environmental data like PM2.5, NO2, CO, and others. 
+      </p>
+      <p style="color: white; font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">
+        By analyzing these inputs, the system helps in understanding the air quality and predicting possible health risks. The image classification module uses deep learning techniques to classify satellite images into categories such as Cloudy, Desert Area, Green Area, Unknown, and Water Body. 
+      <p style="color: white; font-size: 1.1rem; line-height: 1.6;">
+        The system integrates machine learning algorithms, including CNN+LSTM and MobileNet, to process and classify data effectively. This project will help improve environmental awareness and provide timely information to help mitigate the impact of air pollution and environmental changes.
+      </p>
+    </div>
+  </div>
+  
+</section>
+{% endblock %}

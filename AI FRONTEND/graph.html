@@ -1,0 +1,58 @@
+{% extends 'home.html' %}
+
+{% block navbar %}
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ">
+      <li class="nav-item">
+        <a style="color: white;" class="nav-link active" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a style="color: white;" class="nav-link" href="{{url_for('algorithm')}}"> Algorithm</a>
+      </li>
+      <li class="nav-item">
+        <a style="color: white;" class="nav-link" href="{{url_for('prediction')}}"> prediction</a>
+      </li>
+      <li class="nav-item">
+        <a style="color: yellow;" class="nav-link" href="{{url_for('graph')}}"> Graph</a>
+      </li>
+      <li class="nav-item">
+        <a style="color: white;" class="nav-link" href="{{url_for('index')}}">LogOut</a>
+      </li>
+    </ul>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+  <section style="margin-top: -20px;" class="contact_section layout_padding">
+    <div class="container">
+
+      <div class="row">
+        <div style=" margin-top: -50px;">
+
+                <center>
+                    <img style="height: 700px; width: 1200px; margin-top: 50px;" src="/static/images/graph1.png" alt="Your browser doesn't support this image!">
+                </center>
+
+                <center>
+                    <img style="height: 700px; width: 1200px; margin-top: 50px;" src="/static/images/graph2.png" alt="Your browser doesn't support this image!">
+                </center>
+
+                <center>
+                    <img style="height: 700px; width: 1200px; margin-top: 50px;" src="/static/images/graph3.png" alt="Your browser doesn't support this image!">
+                </center>
+
+                <center>
+                    <img style="height: 700px; width: 1200px; margin-top: 50px;" src="/static/images/graph4.png" alt="Your browser doesn't support this image!">
+                </center>
+
+                <center>
+                    <img style="height: 700px; width: 1200px; margin-top: 50px;" src="/static/images/graph5.png" alt="Your browser doesn't support this image!">
+                </center>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
